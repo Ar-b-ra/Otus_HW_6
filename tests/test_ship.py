@@ -2,9 +2,7 @@ import unittest
 
 from abs_implementation.implementation import RealPosition, RealVelocity, Vector
 from abs_implementation.move import Velocity, Position, Move
-from commands.check_fuel_command import CheckFuelCommand
-from commands.macro_comand import MacroCommand
-from ship import Ship, CommandException
+from ship import Ship
 
 
 class MovingObjectTest(unittest.TestCase):
