@@ -1,6 +1,6 @@
-from program_sum import main
+from program_sum import main_sum
 
 
 def adapter(file_path="F0"):
-    main(file_path)
+    main_sum(file_path)
 

@@ -25,7 +25,7 @@ def write_matrix_to_file(matrix, filename):
             file.write('\n')
 
 
-def main(file_path="F0"):
+def main_sum(file_path="F0"):
     # Чтение матриц А и В из файла F0
     matrix_A, matrix_B = read_matrix_from_file(file_path)
 

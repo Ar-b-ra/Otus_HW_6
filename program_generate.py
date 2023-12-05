@@ -1,4 +1,3 @@
-import numpy as np
 from adapter import adapter
 
 import numpy as np
@@ -22,7 +21,7 @@ def write_matrix_to_file(matrix, filename):
             file.write('\n')
 
 
-def main():
+def main_gen():
     # Размерности матриц
     m = 3
     n = 4
@@ -38,4 +37,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main_gen()
