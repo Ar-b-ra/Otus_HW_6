@@ -3,36 +3,38 @@ from adapter import adapter
 import numpy as np
 
 
-# Генерация матрицы A размером m x n
-def generate_matrix_A(m, n):
-    return np.random.rand(m, n)
+class ProgramGenerate:
+    def __init__(self):
+        self.matrix_a = []
+        self.matrix_b = []
 
+    def generate_matrix_a(self, m, n):
+        self.matrix_a = np.random.rand(m, n)
+        return self.matrix_a
 
-# Генерация матрицы B размером n x p
-def generate_matrix_B(n, p):
-    return np.random.rand(n, p)
+    def generate_matrix_b(self, m, n):
+        self.matrix_b = np.random.rand(m, n)
+        return self.matrix_b
 
-
-# Запись матрицы в файл
-def write_matrix_to_file(matrix, filename):
-    with open(filename, 'a') as file:
-        for row in matrix:
-            file.write(' '.join(str(element) for element in row))
-            file.write('\n')
+    def write_sum_matrix_to_file(self, filename):
+        with open(filename, 'w') as file:
+            # Сложение матриц А и В
+            result_matrix = self.matrix_a + self.matrix_b
+            for row in result_matrix:
+                file.write(' '.join(str(element) for element in row))
+                file.write('\n')
 
 
 def main_gen():
     # Размерности матриц
     m = 3
     n = 4
-
-    # Генерация матриц A и B
-    matrix_A = generate_matrix_A(m, n)
-    matrix_B = generate_matrix_B(m, n)
+    generator = ProgramGenerate()
+    generator.generate_matrix_a(m, n)
+    generator.generate_matrix_b(m, n)
     file_path = 'F2'
     # Запись матриц A и B в файл F2
-    write_matrix_to_file(matrix_A, file_path)
-    write_matrix_to_file(matrix_B, file_path)
+    generator.write_sum_matrix_to_file(file_path)
     adapter(file_path)
 
 
