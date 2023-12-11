@@ -1,6 +1,8 @@
-from adapter import adapter
+
 
 import numpy as np
+
+from adapter import Adapter
 
 
 class ProgramGenerate:
@@ -16,13 +18,13 @@ class ProgramGenerate:
         self.matrix_b = np.random.rand(m, n)
         return self.matrix_b
 
-    def write_sum_matrix_to_file(self, filename):
+    def write_matrices_to_file(self, filename):
         with open(filename, 'w') as file:
             # Сложение матриц А и В
-            result_matrix = self.matrix_a + self.matrix_b
-            for row in result_matrix:
-                file.write(' '.join(str(element) for element in row))
-                file.write('\n')
+            for result_matrix in (self.matrix_a, self.matrix_b):
+                for row in result_matrix:
+                    file.write(' '.join(str(element) for element in row))
+                    file.write('\n')
 
 
 def main_gen():
@@ -34,8 +36,9 @@ def main_gen():
     generator.generate_matrix_b(m, n)
     file_path = 'F2'
     # Запись матриц A и B в файл F2
-    generator.write_sum_matrix_to_file(file_path)
-    adapter(file_path)
+    generator.write_matrices_to_file(file_path)
+    adapter = Adapter()
+    adapter.sum_matrices(file_path)
 
 
 if __name__ == '__main__':

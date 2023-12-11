@@ -1,6 +1,12 @@
-from program_sum import main_sum
+from program_sum import ProgramSum
 
 
-def adapter(file_path="F0"):
-    main_sum(file_path)
+class Adapter:
+    def __init__(self):
+        self.adapter = ProgramSum()
+
+    def sum_matrices(self, file_path="F0"):
+        self.adapter.read_matrix_from_file(file_path)
+        self.adapter.write_sum_matrix_to_file("F1")
+
 
