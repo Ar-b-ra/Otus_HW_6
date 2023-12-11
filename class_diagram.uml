@@ -1,0 +1,22 @@
+@startuml
+class ProgramSum{
+    + matrix_a
+    + matrix_b
+    + read_matrix_from_file(filename)
+    + add_matrices()
+    + write_sum_matrix_to_file(filename)
+
+}
+
+class ProgramGenerate{
+    + matrix_a
+    + matrix_b
+    + generate_matrix_a(m, n)
+    + generate_matrix_b(m, n)
+    + write_matrices_to_file(filename)
+}
+class Adapter{
+    + adapter: ProgramSum
+    + sum_matrices(filename)
+}
+@enduml
